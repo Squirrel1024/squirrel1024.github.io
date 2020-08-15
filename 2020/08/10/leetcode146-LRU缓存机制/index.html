@@ -424,7 +424,7 @@ height:50vh;
 <h2 id="set"><a href="#set" class="headerlink" title="set()"></a>set()</h2><p><code>set()</code>方法思路如下：</p>
 <ol>
 <li>根据HashMap判断结点是否已存在，若已存在，则对结点进行更新<code>value</code>，然后更新双向链表，将结点<code>移动</code>至链表首部。否则，执行第二步。</li>
-<li>新建结点并初始化，判断缓存是否已满，若是，则将尾结点（最近最久未使用结点）从双向链表和HashMap中移除，将新结点添加至头结点和HashMap中。若否，则直接将新结点添加至头结点和HashMap中。<br>具体代码实现如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (hashMap.containsKey(key))&#123;</span><br><span class="line">           <span class="comment">// 更新操作</span></span><br><span class="line">           LRUNode lruNode = hashMap.get(key);</span><br><span class="line">           lruNode.value = value;</span><br><span class="line">           lruNode.last.next = lruNode.next;</span><br><span class="line">           lruNode.next.last = lruNode.last;</span><br><span class="line">           lruNode.last = head;</span><br><span class="line">           lruNode.next = head.next;</span><br><span class="line">           head.next.last = lruNode;</span><br><span class="line">           head.next = lruNode;</span><br><span class="line"></span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="comment">// 添加操作</span></span><br><span class="line">           <span class="keyword">if</span> (hashMap.size()&gt;=capacity)&#123;</span><br><span class="line">               LRUNode lruNode = <span class="keyword">new</span> LRUNode(key, value);</span><br><span class="line">               <span class="comment">// 移除最近最久未使用结点</span></span><br><span class="line">               LRUNode remove = hashMap.remove(tail.last.key);</span><br><span class="line">               LRUNode last = tail.last.last;</span><br><span class="line">               last.next = tail;</span><br><span class="line">               tail.last = last;</span><br><span class="line">               <span class="comment">// 插入队首</span></span><br><span class="line">               LRUNode next = head.next;</span><br><span class="line">               head.next = lruNode;</span><br><span class="line">               lruNode.last = head;</span><br><span class="line">               lruNode.next = next;</span><br><span class="line">               next.last = lruNode;</span><br><span class="line">               hashMap.remove(key);</span><br><span class="line">               hashMap.put(key,lruNode);</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               LRUNode lruNode = <span class="keyword">new</span> LRUNode(key, value);</span><br><span class="line">               <span class="comment">// 直接插入链首</span></span><br><span class="line">               LRUNode next = head.next;</span><br><span class="line">               head.next = lruNode;</span><br><span class="line">               lruNode.last = head;</span><br><span class="line">               lruNode.next = next;</span><br><span class="line">               next.last = lruNode;</span><br><span class="line">               hashMap.put(key,lruNode);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li>新建结点并初始化，判断缓存是否已满，若是，则将尾结点（最近最久未使用结点）从双向链表和HashMap中移除，将新结点<code>添加</code>至头结点和HashMap中。若否，则直接将新结点<code>添加</code>至头结点和HashMap中。<br>具体代码实现如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (hashMap.containsKey(key))&#123;</span><br><span class="line">           <span class="comment">// 更新操作</span></span><br><span class="line">           LRUNode lruNode = hashMap.get(key);</span><br><span class="line">           lruNode.value = value;</span><br><span class="line">           lruNode.last.next = lruNode.next;</span><br><span class="line">           lruNode.next.last = lruNode.last;</span><br><span class="line">           lruNode.last = head;</span><br><span class="line">           lruNode.next = head.next;</span><br><span class="line">           head.next.last = lruNode;</span><br><span class="line">           head.next = lruNode;</span><br><span class="line"></span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="comment">// 添加操作</span></span><br><span class="line">           <span class="keyword">if</span> (hashMap.size()&gt;=capacity)&#123;</span><br><span class="line">               LRUNode lruNode = <span class="keyword">new</span> LRUNode(key, value);</span><br><span class="line">               <span class="comment">// 移除最近最久未使用结点</span></span><br><span class="line">               LRUNode remove = hashMap.remove(tail.last.key);</span><br><span class="line">               LRUNode last = tail.last.last;</span><br><span class="line">               last.next = tail;</span><br><span class="line">               tail.last = last;</span><br><span class="line">               <span class="comment">// 插入队首</span></span><br><span class="line">               LRUNode next = head.next;</span><br><span class="line">               head.next = lruNode;</span><br><span class="line">               lruNode.last = head;</span><br><span class="line">               lruNode.next = next;</span><br><span class="line">               next.last = lruNode;</span><br><span class="line">               hashMap.remove(key);</span><br><span class="line">               hashMap.put(key,lruNode);</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               LRUNode lruNode = <span class="keyword">new</span> LRUNode(key, value);</span><br><span class="line">               <span class="comment">// 直接插入链首</span></span><br><span class="line">               LRUNode next = head.next;</span><br><span class="line">               head.next = lruNode;</span><br><span class="line">               lruNode.last = head;</span><br><span class="line">               lruNode.next = next;</span><br><span class="line">               next.last = lruNode;</span><br><span class="line">               hashMap.put(key,lruNode);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </article>
@@ -434,13 +434,18 @@ height:50vh;
             <p>原文作者：<a href="http://Lison.github.io">Lison</a>
             <p>原文链接：<a href="http://Lison.github.io/2020/08/10/leetcode146-LRU缓存机制/">http://Lison.github.io/2020/08/10/leetcode146-LRU缓存机制/</a>
             <p>发表日期：<a href="http://Lison.github.io/2020/08/10/leetcode146-LRU缓存机制/">August 10th 2020, 10:20:08 pm</a>
-            <p>更新日期：<a href="http://Lison.github.io/2020/08/10/leetcode146-LRU缓存机制/">August 11th 2020, 4:12:11 pm</a>
+            <p>更新日期：<a href="http://Lison.github.io/2020/08/10/leetcode146-LRU缓存机制/">August 11th 2020, 4:15:31 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/08/14/leetcode1-15-两数之和-三数之和/" title= "leetcode1&15 两数之和&三数之和">
+                    <div class="nextTitle">leetcode1&15 两数之和&三数之和</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -659,9 +664,46 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -674,6 +716,21 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2020/08/15/Shell学习笔记（二）/" >Shell学习笔记（二）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2020/08/15/Shell学习笔记（一）/" >Shell学习笔记（一）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2020/08/14/leetcode1-15-两数之和-三数之和/" >leetcode1&15 两数之和&三数之和</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -736,6 +793,8 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
+        <span class="sidebar-tag-name" data-tags="Shell"><span class="iconfont-archer">&#xe606;</span>Shell</span>
+    
         <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
     
         <span class="sidebar-tag-name" data-tags="Spring Boot"><span class="iconfont-archer">&#xe606;</span>Spring Boot</span>
@@ -783,9 +842,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="leetcode"><span class="iconfont-archer">&#xe60a;</span>leetcode</span>
     
-        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
         <span class="sidebar-category-name" data-categories="Community"><span class="iconfont-archer">&#xe60a;</span>Community</span>
+    
+        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
     
