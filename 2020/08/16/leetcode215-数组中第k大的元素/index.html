@@ -22,7 +22,7 @@
     <meta name="description" content="java,数据结构，算法">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>松鼠不爱松果</title>
+    <title>leetcode215 数组中第k大的元素 · 松鼠不爱松果</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Squirrel&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">leetcode215 数组中第k大的元素</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Squirrel's Studio</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            leetcode215 数组中第k大的元素
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">775</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/08/16</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,300 +399,74 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/18/MySQL基础架构/" >
-            
-                <span>MySQL基础架构</span>
-        </a>
-        <div class="abstract-content">
-            <p>在学校里学习数据库课程都是停留在理论知识和简单使用的层面，想要达到实际熟练使用还需要很长的路要走，因此在此进行进一步学习和总结。以下是对MySQL基础架构的总结。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "MySQL">MySQL</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>腾讯秋招面试题<a id="more"></a>  </p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
+<p>示例 1:</p>
+<p>输入: [3,2,1,5,6,4] 和 k = 2<br>输出: 5<br>示例 2:</p>
+<p>输入: [3,2,3,1,2,4,5,5,6] 和 k = 4<br>输出: 4<br>说明:</p>
+<p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
+<h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><p>存在一个数组，需要寻找出他第k大的数。</p>
+<h2 id="解法一：快速排序"><a href="#解法一：快速排序" class="headerlink" title="解法一：快速排序"></a>解法一：快速排序</h2><p>最直观的做法就是对数组进行排序，然后寻址第k大的数。使用快排的话时间复杂度为O(nlogn),空间复杂度为O(1),数组寻址时间复杂度为O(1)。总的方法时间复杂度为O(nlogn), 空间复杂度为O（1）<br>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] ints, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 基准元素</span></span><br><span class="line">    <span class="keyword">int</span> index =l;</span><br><span class="line">    <span class="comment">// 左右指针</span></span><br><span class="line">    <span class="keyword">int</span> left= l;</span><br><span class="line">    <span class="keyword">int</span> right = r;</span><br><span class="line">    <span class="keyword">if</span>(left&gt;right)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (left&lt;right)&#123;</span><br><span class="line">        <span class="keyword">while</span> (ints[right]&gt;=ints[index] &amp;&amp; left!=right)&#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (ints[left]&lt;=ints[index]  &amp;&amp; left!=right)&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left&lt;right)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = ints[left];</span><br><span class="line">            ints[left] = ints[right];</span><br><span class="line">            ints[right] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (left == right)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = ints[index];</span><br><span class="line">        ints[index] = ints[left];</span><br><span class="line">        ints[left] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    quickSort(ints,l,left-<span class="number">1</span>);</span><br><span class="line">    quickSort(ints,left+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    quickSort(nums,<span class="number">0</span>,nums.length-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> num = nums[nums.length - k];</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/08/16/leetcode215-数组中第k大的元素/手写快排.png" title="手写快排"><center>手写快排</center><br>
+<img src="/2020/08/16/leetcode215-数组中第k大的元素/快排.png" title="快排"><center>快排</center><br>
+<h2 id="解法二：大顶堆"><a href="#解法二：大顶堆" class="headerlink" title="解法二：大顶堆"></a>解法二：大顶堆</h2><p>后来面试官补充一个条件，当数据量很大的时候呢。当数据量很大的时候，快排时间复杂度为O(nlogn),此时n很大，导致实际时间复杂度很大，这时候适合借助堆的方法来解决。<br>如果采用大顶堆的话，首先进行自下向上建堆，时间复杂度O(n)，再进行k-1次删除时间复杂度O(klogn),空间复杂度没有使用额外空间O(1)，总的时间复杂度时间复杂度为O(k),然后对数组O(n+klogn),空间复杂度O(1)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;(cmp);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">        queue.add(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k-<span class="number">1</span>; i++) &#123;</span><br><span class="line">        queue.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> queue.peek();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> Comparator&lt;Integer&gt; cmp = <span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer e1, Integer e2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> e2 - e1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/08/16/leetcode215-数组中第k大的元素/大顶堆.png" title="大顶堆"><center>大顶堆</center><br>
+
+<h2 id="解法三：小顶堆"><a href="#解法三：小顶堆" class="headerlink" title="解法三：小顶堆"></a>解法三：小顶堆</h2><p>维护一个大小为k的小顶堆，建堆进行遍历，如果比根节点大，则与根结点置换并下沉，时间复杂度（nlogk）,最后输出根节点即可.总的时间复杂度O(k+nlogk),空间复杂度O(k),这里采用现成的优先队列实现，优先队列相当于小顶堆。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;(k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (queue.size()&lt;k)&#123;</span><br><span class="line">            queue.add(num);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (queue.peek()&lt;num)&#123;</span><br><span class="line">                queue.poll();</span><br><span class="line">                queue.add(num);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> queue.peek();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/08/16/leetcode215-数组中第k大的元素/小顶堆.png" title="小顶堆"><center>小顶堆（不得不说，leetcode的内存消耗和排名好迷）</center><br>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/16/leetcode215-数组中第k大的元素/" >
-            
-                <span>leetcode215 数组中第k大的元素</span>
-        </a>
-        <div class="abstract-content">
-            <p>腾讯秋招面试题
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://Lison.github.io">Lison</a>
+            <p>原文链接：<a href="http://Lison.github.io/2020/08/16/leetcode215-数组中第k大的元素/">http://Lison.github.io/2020/08/16/leetcode215-数组中第k大的元素/</a>
+            <p>发表日期：<a href="http://Lison.github.io/2020/08/16/leetcode215-数组中第k大的元素/">August 16th 2020, 2:57:26 pm</a>
+            <p>更新日期：<a href="http://Lison.github.io/2020/08/16/leetcode215-数组中第k大的元素/">August 18th 2020, 11:37:59 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/15/Shell学习笔记（二）/" >
-            
-                <span>Shell学习笔记（二）</span>
-        </a>
-        <div class="abstract-content">
-            <p>Shell学习笔记（二）
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Shell">Shell</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/15/Shell学习笔记（一）/" >
-            
-                <span>Shell学习笔记（一）</span>
-        </a>
-        <div class="abstract-content">
-            <p>Shell学习笔记（一）
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Shell">Shell</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/14/leetcode1-15-两数之和-三数之和/" >
-            
-                <span>leetcode1&amp;15 两数之和&amp;三数之和</span>
-        </a>
-        <div class="abstract-content">
-            <p>leetcode1 两数之和 &amp; leetcode15 三数之和
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/10/leetcode146-LRU缓存机制/" >
-            
-                <span>leetcode146.LRU缓存机制</span>
-        </a>
-        <div class="abstract-content">
-            <p>腾讯暑期实习面试题。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/09/HashMap和ConcurrentHashMap/" >
-            
-                <span>HashMap和ConcurrentHashMap</span>
-        </a>
-        <div class="abstract-content">
-            <p>HashMap 和 ConcurrentHashMap 都是 Java 中很常见的数据结构，因此就在这基于自己的认识对他们做一些小小的总结。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/08/leetcode141-142-环形链表/" >
-            
-                <span>leetcode141&amp;142 环形链表</span>
-        </a>
-        <div class="abstract-content">
-            <p>腾讯暑期实习面试算法题，后面一问没答出来，有点菜。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/07/设计模式：工厂模式/" >
-            
-                <span>设计模式：工厂模式</span>
-        </a>
-        <div class="abstract-content">
-            <p>工厂模式是Java编程中最常见的设计模式之一。在工厂模式中，我们并不直接在代码逻辑中new一个对象，而是将对象的创建交给工厂类负责，这样可以使我们代码逻辑不需要关心类的创建过程，只需要调用工厂的相应方法即可。这样做的好处是当类的创建逻辑发生变化时，我们只需要更改工厂类的方法就可以了。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "设计模式">设计模式</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/06/设计模式：单例模式/" >
-            
-                <span>设计模式：单例模式</span>
-        </a>
-        <div class="abstract-content">
-            <p>单例模式是Java开发中最为简单的设计模式之一，在实现方式上有许多种。所谓单例，就是这个类整个程序中有且只有一个实例，该类负责创建一个实例，同时也负责只有一个实例被创建。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "设计模式">设计模式</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/08/18/MySQL基础架构/" title= "MySQL基础架构">
+                    <div class="nextTitle">MySQL基础架构</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/08/15/Shell学习笔记（二）/" title= "Shell学习笔记（二）">
+                    <div class="prevTitle">Shell学习笔记（二）</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -705,6 +540,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题意解析"><span class="toc-number">1.1.</span> <span class="toc-text">题意解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法一：快速排序"><span class="toc-number">1.2.</span> <span class="toc-text">解法一：快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法二：大顶堆"><span class="toc-number">1.3.</span> <span class="toc-text">解法二：大顶堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法三：小顶堆"><span class="toc-number">1.4.</span> <span class="toc-text">解法三：小顶堆</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1063,6 +916,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

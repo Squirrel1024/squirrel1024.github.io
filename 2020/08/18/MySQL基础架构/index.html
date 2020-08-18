@@ -22,7 +22,7 @@
     <meta name="description" content="java,数据结构，算法">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>松鼠不爱松果</title>
+    <title>MySQL基础架构 · 松鼠不爱松果</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Squirrel&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">MySQL基础架构</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Squirrel's Studio</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            MySQL基础架构
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "MySQL">MySQL</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/08/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,300 +399,74 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/18/MySQL基础架构/" >
-            
-                <span>MySQL基础架构</span>
-        </a>
-        <div class="abstract-content">
-            <p>在学校里学习数据库课程都是停留在理论知识和简单使用的层面，想要达到实际熟练使用还需要很长的路要走，因此在此进行进一步学习和总结。以下是对MySQL基础架构的总结。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "MySQL">MySQL</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>在学校里学习数据库课程都是停留在理论知识和简单使用的层面，想要达到实际熟练使用还需要很长的路要走，因此在此进行进一步学习和总结。以下是对MySQL基础架构的总结。<a id="more"></a> </p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><img src="/2020/08/18/MySQL基础架构/MySQL基础架构.png" title="MySQL基础架构"><br>
+<p>MySQL基础架构可分为以下两层：<code>Server层</code>和<code>存储引擎层</code>，如上图所示。<br>其中Server层是通用的，主要由<code>连接器</code>、<code>查询缓存</code>、<code>分析器</code>、<code>优化器</code>、<code>执行器</code>，涵盖了MySQL的大部分功能，无论采用何引擎都是如此的架构。<br>而存储引擎层则是插件式的，负责数据的存储，不同存储引擎实际实现不同，主流的存储引擎主要有<code>MyISAM</code>和<code>InnoDB</code>。</p>
+<h1 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h1><p>连接器负责客户端与服务端的连接，有建立、管理连接，身份认证等功能。  </p>
+<h2 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h2><p>当执行以下语句的时候，第一个遇到的就是连接器。  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>在经过三次握手连接后，连接器将获取到的用户名和密码进行校验。若校验成功，则在权限表中查询该用户拥有的权限。这也就意味着一旦建立了连接，即使你使用管理员账户对该用户的权限进行修改，也不会影响到当前连接中该用户的权限，直到重新新建连接。</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>连接建立后，即使没有后续操作，连接也是一直存在的，状态为空闲。但是连接存在时间是有时限的，可以通过参数<code>wait_timeout</code>控制，默认为8小时。客户端如果太久没有进行操作，连接就会被断开。<br>连接可以分为两种：<code>长连接</code>和<code>短链接</code>。<br><code>长连接</code>是指连接成功后，如果客户端持续有请求，则⼀直使⽤同⼀个连接。<br><code>短连接</code>是指连接成功后，每次执行几次查询请求就断开连接，下次连接重新建立。<br>连接的建立一般是比较复杂的，我们最好要避免频繁建立连接。但是当全部使用长连接的时候，容易发现这样一个现象，MySQL占用的内存变得很大。这是因为MySQL在执行过程使用的临时内存是管理在连接对象中的，这些资源只有当连接断开的时候才释放。<br>主要解决办法有如下两种：</p>
+<ol>
+<li>定期断开⻓连接。使⽤⼀段时间，或者程序⾥⾯判断执⾏过⼀个占⽤内存的⼤查询后，断开连接，之后要查询再重连。 </li>
+<li>如果你⽤的是MySQL 5.7或更新版本，可以在每次执⾏⼀个⽐较⼤的操作后，通过执⾏ <code>mysql_reset_connection</code>来重新初始化连接资源。这个过程不需要重连和重新做权限验证，但是会将连接恢复到刚刚创建完时的状态。  </li>
+</ol>
+<h1 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h1><p>当连接建立成功后，就可以执行查询语句了，执行逻辑即来到了第二步：查询缓存。查询缓存可能（一般？）以key-value的形式存储，key是语句，value是查询结果。<br>但我们一般不建议使用查询缓存，因为只要表被更新的时候，缓存就会失效，除非是修改少的静态表，不然一般不使用。在MySQL8.0中，查询缓存已经被移除了。</p>
+<h1 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h1><p>当语句没有命中查询缓存后，就到了分析器。分析器首先对语句进行词法分析，识别关键字，再进行语法分析，读懂语句，若语句出现语法错误，也是在这一步发现的。</p>
+<h1 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h1><p>优化器是当表中有多个索引，由优化器决定使用哪个索引，或者是有多表关联（join）的时候，由优化器决定执行先后顺序。</p>
+<h1 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h1><p>数据库经过分析器知道了要做什么，经过优化器知道该怎么做，到了执行器就进行执行环节了。<br>在执行的时候，首先要进行权限判断，判断你是否有查询该表的权限。如果有，则调用存储引擎接口进行查询。<br>下面以以下语句为例，解释查询过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>	*	<span class="keyword">from</span>	T	<span class="keyword">where</span>	<span class="keyword">ID</span>=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>假设ID没有索引，则进行以下过程：</p>
+<ol>
+<li>调用InnoDB引擎接口取该表第一行，判断ID是不是等于10，不是则跳过，是则存储到结果集中。</li>
+<li>调用下一行接口，重复上一步逻辑，直至遍历完。</li>
+<li>将结果集返回至客户端。</li>
+</ol>
+<p>当ID有索引的时候，和上面情况差不多，不同的是，分别调用的是满足条件的第一行接口，满足条件的下一行接口。</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/16/leetcode215-数组中第k大的元素/" >
-            
-                <span>leetcode215 数组中第k大的元素</span>
-        </a>
-        <div class="abstract-content">
-            <p>腾讯秋招面试题
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://Lison.github.io">Lison</a>
+            <p>原文链接：<a href="http://Lison.github.io/2020/08/18/MySQL基础架构/">http://Lison.github.io/2020/08/18/MySQL基础架构/</a>
+            <p>发表日期：<a href="http://Lison.github.io/2020/08/18/MySQL基础架构/">August 18th 2020, 8:08:07 pm</a>
+            <p>更新日期：<a href="http://Lison.github.io/2020/08/18/MySQL基础架构/">August 18th 2020, 10:07:18 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/15/Shell学习笔记（二）/" >
-            
-                <span>Shell学习笔记（二）</span>
-        </a>
-        <div class="abstract-content">
-            <p>Shell学习笔记（二）
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Shell">Shell</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/15/Shell学习笔记（一）/" >
-            
-                <span>Shell学习笔记（一）</span>
-        </a>
-        <div class="abstract-content">
-            <p>Shell学习笔记（一）
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Shell">Shell</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/14/leetcode1-15-两数之和-三数之和/" >
-            
-                <span>leetcode1&amp;15 两数之和&amp;三数之和</span>
-        </a>
-        <div class="abstract-content">
-            <p>leetcode1 两数之和 &amp; leetcode15 三数之和
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/10/leetcode146-LRU缓存机制/" >
-            
-                <span>leetcode146.LRU缓存机制</span>
-        </a>
-        <div class="abstract-content">
-            <p>腾讯暑期实习面试题。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/09/HashMap和ConcurrentHashMap/" >
-            
-                <span>HashMap和ConcurrentHashMap</span>
-        </a>
-        <div class="abstract-content">
-            <p>HashMap 和 ConcurrentHashMap 都是 Java 中很常见的数据结构，因此就在这基于自己的认识对他们做一些小小的总结。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/08/leetcode141-142-环形链表/" >
-            
-                <span>leetcode141&amp;142 环形链表</span>
-        </a>
-        <div class="abstract-content">
-            <p>腾讯暑期实习面试算法题，后面一问没答出来，有点菜。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/07/设计模式：工厂模式/" >
-            
-                <span>设计模式：工厂模式</span>
-        </a>
-        <div class="abstract-content">
-            <p>工厂模式是Java编程中最常见的设计模式之一。在工厂模式中，我们并不直接在代码逻辑中new一个对象，而是将对象的创建交给工厂类负责，这样可以使我们代码逻辑不需要关心类的创建过程，只需要调用工厂的相应方法即可。这样做的好处是当类的创建逻辑发生变化时，我们只需要更改工厂类的方法就可以了。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "设计模式">设计模式</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/06/设计模式：单例模式/" >
-            
-                <span>设计模式：单例模式</span>
-        </a>
-        <div class="abstract-content">
-            <p>单例模式是Java开发中最为简单的设计模式之一，在实现方式上有许多种。所谓单例，就是这个类整个程序中有且只有一个实例，该类负责创建一个实例，同时也负责只有一个实例被创建。
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "设计模式">设计模式</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/08/16/leetcode215-数组中第k大的元素/" title= "leetcode215 数组中第k大的元素">
+                    <div class="prevTitle">leetcode215 数组中第k大的元素</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -705,6 +540,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#总览"><span class="toc-number">1.</span> <span class="toc-text">总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#连接器"><span class="toc-number">2.</span> <span class="toc-text">连接器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#身份认证"><span class="toc-number">2.1.</span> <span class="toc-text">身份认证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接"><span class="toc-number">2.2.</span> <span class="toc-text">连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查询缓存"><span class="toc-number">3.</span> <span class="toc-text">查询缓存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析器"><span class="toc-number">4.</span> <span class="toc-text">分析器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化器"><span class="toc-number">5.</span> <span class="toc-text">优化器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#执行器"><span class="toc-number">6.</span> <span class="toc-text">执行器</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1063,6 +916,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
